@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -16,7 +17,7 @@ public class Libro {
     @Column(name = "idlibro")
     private Integer id;
 
-    @NotNull
+    @NotBlank
     private String titulo;
 
     @NotNull

@@ -4,6 +4,7 @@ import com.example.demosesion02.model.Libro;
 import com.example.demosesion02.repo.LibroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class ApiController {
     }
 
     @PostMapping("/libros")
-    Libro crearLibro(@RequestBody Libro libro) {
+    Libro crearLibro(@RequestBody @Validated Libro libro) {
         return libroRepository.save(libro);
     }
 

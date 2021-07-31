@@ -21,9 +21,16 @@
                     <tr *ngFor="let libro of libros">
                         <td>{{ libro.id}}</td>
                         <td>{{ libro.titulo}}</td>
-                        <td>{{ libro.precio}}</td>
-                        <td>{{ libro.publicado}}</td>
-                        <td>{{ libro.fechaCreacion}}</td>
+                        <td>{{ libro.precio | currency:'S/'}}</td>
+                        <td>
+                            
+                            <SPAN class="badge bg-success" *ngIf="libro.publicado; else noDisponible">SÍ</SPAN>
+                            <ng-template #noDisponible>
+                                <SPAN class="badge bg-danger">NO</SPAN>
+                            </ng-template>
+
+                        </td>
+                        <td>{{ libro.fechaCreacion | date:'dd/MM/yyyy'}}</td>
                     </tr>
                 </tbody>
             </table>

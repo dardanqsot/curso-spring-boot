@@ -1,0 +1,32 @@
+<form action="mt-5" [formGroup] = "form" (ngSubmit)="crear()">
+    <div class="mb-2">
+        <label for="titulo">Titulo</label>
+        <input id="titulo" type="text" class="form-control" formControlName="titulo">
+        <div class="text-danger" *ngIf="form.controls['titulo'].hasError('required') && form.controls['titulo'].touched">
+            Este campo es obligatorio
+        </div>
+        <div class="text-danger" *ngIf="form.controls['titulo'].hasError('minlength') && form.controls['titulo'].touched">
+            Debe contener 3 caracteres como mínimo
+        </div>
+    </div>
+
+    <div class="mb-2">
+        <label for="precio">Precio</label>
+        <input id="precio" type="number" class="form-control" formControlName="precio">
+        <div class="text-danger" *ngIf="form.controls['precio'].hasError('required') && form.controls['precio'].touched">
+            Este campo es obligatorio
+        </div>
+    </div>
+
+    <div class="mb-2">
+        <div class="form-check">
+            <input id="publicado" type="checkbox" class="form-check-input" formControlName="publicado">
+            <label for="publicado" class="form-check-label">
+                Publicado
+            </label>
+        </div>
+    </div>
+    <div class = "text-right">
+        <button class = "btn btn-primary"> Guardar</button>
+    </div>
+</form>

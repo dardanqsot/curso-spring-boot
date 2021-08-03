@@ -22,7 +22,7 @@ public class Venta {
     @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL)
     private List<ItemVenta> items;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
     private Usuario usuario;
 

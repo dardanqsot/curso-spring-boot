@@ -35,7 +35,6 @@ public class Libro {
     @NotBlank
     private String rutaArchivo;
 
-
     private LocalDateTime fechaCreacion;
 
     @Transient //Proiedad volatil qno se va a almacenar
@@ -45,9 +44,8 @@ public class Libro {
     private String urlArchivo;
 
     @PrePersist
-    private void asignarFechaCreacion(){
+    private void asignarFechaCreacion() {
         fechaCreacion = LocalDateTime.now();
-
     }
 
 }

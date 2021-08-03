@@ -73,9 +73,6 @@ public class AdminController extends BaseController {
             throw new BadRequestException("El slug ya fue registrado");
         }
 
-
-       // libro.setId(id);
-
         libroFromDb.setPrecio(libro.getPrecio());
         libroFromDb.setDescripcion(libro.getDescripcion());
         libroFromDb.setRutaPortada(libro.getRutaPortada());

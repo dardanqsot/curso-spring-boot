@@ -26,6 +26,4 @@ public class ItemVenta {
     @JoinColumn(name = "idventa", referencedColumnName = "idventa")
     private Venta venta;
 
-    //private LocalDateTime fecha;
-
 }

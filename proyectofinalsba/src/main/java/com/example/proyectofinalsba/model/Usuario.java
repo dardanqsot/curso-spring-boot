@@ -25,8 +25,6 @@ public class Usuario {
 
     private String nombreCompleto;
 
-    private String password;
-
     @Email
     @NotBlank
     private String email;
@@ -34,9 +32,6 @@ public class Usuario {
     private Rol rol;
 
     private LocalDateTime fechaRegistro;
-
-    @OneToMany(mappedBy = "usuario")
-    private List<Venta> ventas;
 
     public enum Rol {
         ADMIN,

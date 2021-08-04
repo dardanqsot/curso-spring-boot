@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../material/material.module';
 import { LayoutComponent } from './layout/layout.component';
+import { AdminRoutingModule } from './admin-routing.module';
 
 
 
@@ -15,7 +16,8 @@ import { LayoutComponent } from './layout/layout.component';
     CommonModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    AdminRoutingModule
   ]
 })
 export class AdminModule { }

@@ -1,1 +1,17 @@
-<p>layout works!</p>
+<mat-toolbar color="primary"> 
+    <h1>Administración</h1>
+
+    <button mat-button routerLink="/libros" class = "ml-1">
+        Libros
+    </button>
+
+    <span class="spacer"></span> 
+    <button mat-button>
+        @Darwin
+    </button>
+</mat-toolbar>
+
+<div style="padding: 2em">
+    <router-outlet></router-outlet>
+</div>
+

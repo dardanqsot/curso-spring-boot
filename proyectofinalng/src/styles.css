@@ -1,0 +1,281 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.ml-8 {
+    margin-left: 8px;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-upload {
+    margin: 8px 0;
+}
+
+.file-upload .file-name {
+    margin-right: 8px;
+}
+
+button[type=submit] {
+    margin-top: 1rem;
+}
+
+table {
+    width: 100%;
+}
+
+.mt-1 {
+    margin-top: 1rem !important;
+}
+
+.mt-2 {
+    margin-top: 2rem !important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-2 {
+    margin-bottom: 2rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 3rem !important;
+}
+
+.ml-1 {
+    margin-left: 1rem !important;
+}
+
+.ml-2 {
+    margin-left: 2rem !important;
+}
+
+.my-3 {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
+.p-2 {
+    padding: 2rem;
+}
+
+.banner {
+    background: url('./assets/banner.png') center no-repeat;
+    min-height: 500px;
+    background-size: cover;
+    position:relative;
+    z-index:-2;
+}
+.banner .overlay {
+    /* background: rgba(0,0,0,0.25); */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.banner .text {
+    text-align: right;
+    color: rgb(0, 0, 0);
+    padding: 3rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.banner .text .title {
+    font-size: 5em;
+    color: #ff284f;
+}
+
+.banner .text .subtitle {
+    margin-top: 2rem;
+    font-size: 120%;
+    display: inline-block;
+}
+
+.mat-toolbar.white {
+    background: #fff;;
+}
+
+.container {
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.container-lg {
+    max-width: 1200px;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.container-sm {
+    max-width: 420px;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.card-curso {
+    height: 100%;
+}
+
+.card-curso .precio {
+    color: #f44336;
+    font-weight: bold;
+    font-size: 130%;
+    text-align: right;
+}
+
+.card-curso .mat-card-image {
+    text-align: center;
+}
+
+.card-curso .mat-card-image img {
+    width: 50%;
+    padding-top: 1rem;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.mat-card-content h1 {
+    min-height: 64px;
+}
+
+.mat-menu-panel.carrito-menu {
+    max-width: 400px;
+}
+
+.mat-menu-panel.carrito-menu .ir-a-carrito {
+    text-align: center;
+}
+
+.carrito-item {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    height: auto !important;
+}
+
+hr {
+    border: 1px solid #eee;
+}
+
+.carrito-item .info {
+    line-height: normal;
+}
+
+.carrito-item .info .titulo {
+    font-weight: 500;
+    width: 300px;
+}
+
+.carrito-item .info .titulo.truncate {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 300px;
+}
+
+.carrito-item .info .precio {
+    margin-top: 2px;
+}
+
+.carrito-item > .precio {
+    color: #f44336;
+    font-weight: bold;
+}
+
+.carrito-resumen {
+    min-width: 300px;
+}
+
+.carrito-resumen .total {
+    font-weight: bolder;
+    font-size: 2.5em;
+    line-height: initial;
+    margin-bottom: 1rem;
+}
+
+.carrito-resumen button.pagar {
+    height: 48px;
+    font-size: 150%;
+    margin-bottom: 1rem;
+}
+
+.card-curso .titulo-link {
+    text-decoration: none;
+    color: #673ab7;
+}
+
+h1, .font-weight-bold {
+    font-weight: bold;
+}
+
+.font-size-150 {
+    font-size: 150%;
+}
+
+.color-red {
+    color: #f44336;
+}
+
+.alert-error {
+    background: #f5dede;
+    padding: 1rem;
+    border-radius: 5px;
+    color: red;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.color-green {
+    color: rgb(16, 224, 16);
+}
+
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+   
+  .spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    border-top-color: #000000;
+    animation: spinner .8s linear infinite;
+  }

@@ -1,17 +1,22 @@
-<mat-toolbar color="primary"> 
+<mat-toolbar color="primary">
+
     <h1>Administración</h1>
 
-    <button mat-button routerLink="/libros" class = "ml-1">
+    <button mat-button routerLink="/admin/libros" class="ml-1">
         Libros
     </button>
 
-    <span class="spacer"></span> 
+    <span class="spacer"></span>
+
     <button mat-button>
         @Darwin
     </button>
+
 </mat-toolbar>
 
-<div style="padding: 2em">
-    <router-outlet></router-outlet>
-</div>
 
+<div style="padding: 2rem;">
+
+    <router-outlet></router-outlet>
+
+</div>

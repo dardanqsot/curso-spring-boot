@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { LibroPage } from 'src/app/interfaces/libro.interface';
 import { LibroService } from '../../services/libro.service';
-import { LibroPage } from '../../interfaces/libro.interface';
 
 @Component({
   selector: 'app-lista-libros',
@@ -19,6 +20,16 @@ export class ListaLibrosComponent implements OnInit {
 
   ngOnInit(): void {
     this.libroService.getLibros()
+      .subscribe(data => this.libroPage = data);
+  }
+
+  onPaginateChange(event: PageEvent) {
+    const pageIndex = event.pageIndex;
+    const pageSize = event.pageSize;
+
+    console.log('var', pageIndex, pageSize)
+
+    this.libroService.getLibros(pageIndex, pageSize)
       .subscribe(data => this.libroPage = data);
   }
 

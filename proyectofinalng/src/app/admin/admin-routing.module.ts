@@ -11,6 +11,10 @@ const routes: Routes = [
             {
                 path: 'libros',
                 component: ListaLibrosComponent
+            },
+            {
+                path: 'libros/nuevo',
+                
             }
         ]
     }

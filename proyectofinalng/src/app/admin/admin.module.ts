@@ -6,13 +6,15 @@ import { MaterialModule } from '../material/material.module';
 import { LayoutComponent } from './layout/layout.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { ListaLibrosComponent } from './pages/lista-libros/lista-libros.component';
+import { NuevoLibroComponent } from './pages/nuevo-libro/nuevo-libro.component';
 
 
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    ListaLibrosComponent
+    ListaLibrosComponent,
+    NuevoLibroComponent
   ],
   imports: [
     CommonModule,

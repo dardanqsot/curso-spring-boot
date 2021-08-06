@@ -1,5 +1,113 @@
-<H1>Nuevo Libro</H1>
+<h1>Nuevo libro</h1>
 
 <form autocomplete="off" [formGroup]="formulario" (ngSubmit)="crear()">
-    
+
+    <div fxLayout="row" fxLayoutGap="40px" fxLayoutAlign="center center">
+
+        <div fxFlex="50" fxLayout="column">
+
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Título</mat-label>
+                <input matInput formControlName="titulo">
+
+                <mat-error *ngIf="formulario.controls['titulo'].hasError('required')">
+                    Este campo es obligatorio
+                </mat-error>
+
+                <mat-error *ngIf="formulario.controls['titulo'].hasError('minlength')">
+                    Este campo debe contener 3 caracteres como mínimo
+                </mat-error>
+
+                <mat-error *ngIf="formulario.controls['titulo'].hasError('maxlength')">
+                    Este campo debe contener 250 caracteres como máximo
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Slug</mat-label>
+                <input matInput formControlName="slug">
+
+                <mat-error *ngIf="formulario.controls['slug'].hasError('required')">
+                    Este campo es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Descripción</mat-label>
+                <textarea matInput formControlName="descripcion" rows="5"></textarea>
+
+                <mat-error *ngIf="formulario.controls['descripcion'].hasError('required')">
+                    Este campo es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Precio</mat-label>
+                <input matInput formControlName="precio">
+
+                <mat-error *ngIf="formulario.controls['precio'].hasError('required')">
+                    Este campo es obligatorio
+                </mat-error>
+            </mat-form-field>
+
+            <input type="file" class="file-input" accept="image/*" (change)="onFileSelected($event, 'rutaPortada')" #portadaInputFile>
+
+
+            <div class="file-upload">
+                <div class="file-name">
+                    <strong>Imagen de portada:</strong> {{ formulario.controls['rutaPortada'].value || 'No seleccionado' }}
+                </div>
+
+
+                <button type="button" mat-mini-fab color="primary" class="upload-btn" (click)="portadaInputFile.click()">
+                    <mat-icon>attach_file</mat-icon>
+                </button>
+
+                <mat-error *ngIf="formulario.controls['rutaPortada'].hasError('required') && formulario.controls['rutaPortada'].touched">
+                    La portada es obligatorio
+                </mat-error>
+            </div>
+
+
+            <input type="file" class="file-input" accept="application/pdf" (change)="onFileSelected($event, 'rutaArchivo')" #archivoInputFile>
+
+
+            <div class="file-upload">
+                <div class="file-name">
+                    <strong>Archivo PDF:</strong> {{ formulario.controls['rutaArchivo'].value || 'No seleccionado' }}
+                </div>
+
+
+                <button type="button" mat-mini-fab color="primary" class="upload-btn" (click)="archivoInputFile.click()">
+                    <mat-icon>attach_file</mat-icon>
+                </button>
+
+                <mat-error *ngIf="formulario.controls['rutaArchivo'].hasError('required') && formulario.controls['rutaArchivo'].touched">
+                    El archivo PDF es obligatorio
+                </mat-error>
+            </div>
+
+
+            <button mat-raised-button color="primary">
+                Guardar
+            </button>
+
+        </div>
+
+        <div flexFlex="50" fxLayout="column">
+            <img [src]="urlPortada" alt="" style="max-width: 450px; max-height: 450px; margin: 0 auto;"
+            *ngIf="urlPortada; else sinPortada">
+        </div>
+
+        <ng-template #sinPortada>
+            <div style="width: 450px; height: 250px; margin: 0 auto; border: 1px solid lightblue; text-align: center; padding-top: 3rem;">
+                Sin portada
+            </div>
+        </ng-template>
+        
+
+    </div>
+
 </form>

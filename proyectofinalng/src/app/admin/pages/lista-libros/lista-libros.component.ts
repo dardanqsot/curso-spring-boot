@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { LibroPage } from 'src/app/interfaces/libro.interface';
 import { LibroService } from '../../services/libro.service';
+import { Libro } from '../../../interfaces/libro.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-libros',
@@ -15,7 +17,8 @@ export class ListaLibrosComponent implements OnInit {
   libroPage!: LibroPage;
 
   constructor(
-    private libroService: LibroService
+    private libroService: LibroService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +34,24 @@ export class ListaLibrosComponent implements OnInit {
 
     this.libroService.getLibros(pageIndex, pageSize)
       .subscribe(data => this.libroPage = data);
+  }
+
+  eliminarLibro(libro: Libro) {
+    const ok = confirm('¿Está seguro de eliminar este libro?');
+
+    if (ok) {
+      this.libroService.eliminarLibro(libro)
+        .subscribe(() => {
+
+          this.libroService.getLibros()
+            .subscribe(data => this.libroPage = data);
+            
+        });
+    }
+  }
+
+  editarLibro(libro: Libro) {
+    this.router.navigate(['/admin', 'libros', libro.id, 'editar']);
   }
 
 }

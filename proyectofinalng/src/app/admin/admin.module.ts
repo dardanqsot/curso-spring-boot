@@ -7,6 +7,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { ListaLibrosComponent } from './pages/lista-libros/lista-libros.component';
 import { NuevoLibroComponent } from './pages/nuevo-libro/nuevo-libro.component';
+import { EditarLibroComponent } from './pages/editar-libro/editar-libro.component';
+import { FormLibroComponent } from './pages/form-libro/form-libro.component';
 
 
 
@@ -14,7 +16,9 @@ import { NuevoLibroComponent } from './pages/nuevo-libro/nuevo-libro.component';
   declarations: [
     LayoutComponent,
     ListaLibrosComponent,
-    NuevoLibroComponent
+    NuevoLibroComponent,
+    EditarLibroComponent,
+    FormLibroComponent
   ],
   imports: [
     CommonModule,

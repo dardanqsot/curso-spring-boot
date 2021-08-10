@@ -29,4 +29,16 @@ export class LibroService {
     return this.http.post(`${this.apiBase}/admin/libros`, libro);
   }
 
+  getLibro(id: number) {  
+    return this.http.get(`${this.apiBase}/admin/libros/${id}`);
+  }
+
+  actualizarLibro(id: number, libro: Libro) {
+    return this.http.put(`${this.apiBase}/admin/libros/${id}`, libro);
+  }
+
+  eliminarLibro(libro: Libro) {
+    return this.http.delete(`${this.apiBase}/admin/libros/${libro.id}`);
+  }
+
 }

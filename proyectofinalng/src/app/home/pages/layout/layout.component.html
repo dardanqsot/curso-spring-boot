@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+
+    <h1>Tienda de libros</h1>
+
+    <button mat-button routerLink="/" class="ml-1">
+        Inicio
+    </button>
+
+    <button mat-button routerLink="/libros" class="ml-1">
+        Libros
+    </button>
+
+    <button mat-button routerLink="/admin/libros" class="ml-1" *ngIf="true">
+        Administrar
+    </button>
+
+    <span class="spacer"></span>
+
+    <button mat-button [matMenuTriggerFor]="menuCarrito">
+        <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+    <mat-menu #menuCarrito class="carrito-menu">
+
+        <ng-container *ngIf="items.length > 0; else sinItems">
+
+            <button mat-menu-item *ngFor="let item of items" class="carrito-item" [routerLink]="['libro', item.slug]">
+            
+                <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="flex-start">
+    
+                    <img [src]="item.urlPortada" [alt]="item.titulo" height="64">
+                    <div class="info">
+                        <div class="titulo truncate">{{ item.titulo }}</div>
+                        <div class="precio">{{ item.precio | currency:'S/' }}</div>
+                    </div>
+    
+                </div>
+    
+            </button>
+
+            <button mat-menu-item class="ir-a-carrito" routerLink="/carrito">
+                Ir a carrito
+            </button>
+
+        </ng-container>
+
+        <ng-template #sinItems>
+            <button mat-menu-item>
+                El carrito está vacío
+            </button>
+        </ng-template>
+        
+    </mat-menu>
+
+
+    <button mat-button>
+        @Darwin
+    </button>
+
+</mat-toolbar>
+
+
+<div style="padding: 2rem;">
+
+    <router-outlet></router-outlet>
+
+</div>

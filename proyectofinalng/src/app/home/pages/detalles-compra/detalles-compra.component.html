@@ -1,0 +1,59 @@
+<div class="container-lg" *ngIf="venta">
+
+    <div class="text-center font-size-150">
+
+        <mat-icon class="color-green w-full">check_circle</mat-icon>
+        <div class="mt-1 title">Tu compra ha sido realizada con éxito.</div>
+
+    </div>
+
+    <div class="mb-3"></div>
+
+    <h1>Detalles de compra</h1>
+
+
+    <div fxLayout.gt-md="row" fxLayout.gt-xs="column" fxLayoutGap="50px">
+
+        <div fxFlex="2 1 auto">
+
+            <div *ngFor="let item of venta.items">
+
+                <div fxLayout="row" fxLayoutGap="15px" class="carrito-item">
+
+                    <img [src]="item.libro.urlPortada" [alt]="item.libro.titulo" height="120">
+
+                    <div fxFlex="2 1 auto" class="info">
+                        <div class="titulo">{{ item.libro.titulo }}</div>
+
+                        <div>
+                            <button mat-raised-button color="warn" class="mt-1" (click)="descargarArchivo(item)"
+                                [disabled]="item.numeroDescargasDisponibles == 0">
+                                <mat-icon>file_download</mat-icon> Descargar PDF
+                            </button>
+
+                            <span class="ml-1">
+                                {{ item.numeroDescargasDisponibles }} descargas disponibles
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <div class="carrito-resumen">
+            <h2>Total:</h2>
+
+            <div class="total">{{ venta.total | currency:'S/' }}</div>
+
+            <button mat-button class="w-full" routerLink="/libros">
+                Seguir comprando
+            </button>
+        </div>
+
+    </div>
+
+</div>

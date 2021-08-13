@@ -1,0 +1,63 @@
+<div class="banner">
+    <div class="overlay"></div>
+
+    <div class="text">
+        <h1 class="title">Tienda de libros</h1>
+        <p class="subtitle">
+            Encuentra el libro digital perfecto para ti y comienza
+            a aprender sin límites.
+        </p>
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Últimos libros</h1>
+
+    <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap.gt-lg="50px" fxLayoutGap="20px">
+
+        <div fxFlex.xs="100" fxFlex.gt-xs="calc(50% - 20px)" fxFlex.lg="calc(33.3% - 20px)"
+            fxFlex.gt-lg="0 1 calc(25% - 50px)" fxLayout="column" fxLayoutAlign="center center"
+
+            *ngFor="let libro of ultimosLibros" class="mb-1">
+
+            <mat-card class="card-curso">
+                <div mat-card-image>
+                    <img [src]="libro.urlPortada" [alt]="libro.titulo">
+                </div>
+
+                <mat-card-content>
+                    <a [routerLink]="['/libro', libro.slug]" class="titulo-link">
+                        <h1>{{ libro.titulo }}</h1>
+                    </a>
+                    <p>
+                        {{ libro.descripcion | slice:0:100 }}...
+                    </p>
+                    <div class="precio">{{ libro.precio | currency:'S/' }}</div>
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-raised-button color="accent" class="w-full" routerLink="/carrito"
+                        *ngIf="libroYaEstaAgregado(libro); else botonAgregar">
+                        <mat-icon>done</mat-icon> Ir al carrito
+                    </button>
+
+                    <ng-template #botonAgregar>
+
+                        <button mat-raised-button color="primary" class="w-full" (click)="agregarACarrito(libro)">
+                            <mat-icon>add_shopping_cart</mat-icon> Agregar al carrito
+                        </button>
+
+                    </ng-template>
+                    
+                </mat-card-actions>
+
+            </mat-card>
+
+        </div>
+
+    </div>
+
+</div>

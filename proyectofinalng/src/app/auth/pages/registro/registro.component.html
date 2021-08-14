@@ -1,0 +1,59 @@
+<div class="container-sm">
+    <h1 class="mt-2">Registro de usuario</h1>
+
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="registrar()">
+
+        <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Nombres</mat-label>
+            <input matInput type="text" formControlName="nombres">
+            <mat-error *ngIf="form.controls['nombres'].hasError('required')">
+                Este campo es obligatorio
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Apellidos</mat-label>
+            <input matInput type="text" formControlName="apellidos">
+            <mat-error *ngIf="form.controls['apellidos'].hasError('required')">
+                Este campo es obligatorio
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput type="email" formControlName="email">
+            <mat-error *ngIf="form.controls['email'].hasError('required')">
+                Este campo es obligatorio
+            </mat-error>
+            <mat-error *ngIf="form.controls['email'].hasError('email')">
+                Ingrese un correo electrónico válido
+            </mat-error>
+            <mat-error *ngIf="form.controls['email'].hasError('emailExiste')">
+                El email ya fue registrado
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="passwordPlain">
+            <mat-icon matSuffix (click)="hidePassword = !hidePassword" class="cursor-pointer">
+                {{hidePassword ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+            <mat-error *ngIf="form.controls['passwordPlain'].hasError('required')">
+                Este campo es obligatorio
+            </mat-error>
+            <mat-error *ngIf="form.controls['passwordPlain'].hasError('minlength')">
+                La contraseña debe tener al menos 4 caracteres
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary" class="w-full">
+            Registrar
+        </button>
+
+        <div *ngIf="error" class="alert-error mt-2">
+            {{ error }}
+        </div>
+
+    </form>
+</div>

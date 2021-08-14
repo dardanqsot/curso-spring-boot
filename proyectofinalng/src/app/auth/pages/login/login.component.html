@@ -1,0 +1,36 @@
+<div class="container-sm">
+
+    <h1 class="mt-2">Inicio de sesión</h1>
+
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="login()">
+
+        <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Correo electrónico</mat-label>
+            <input matInput type="text" formControlName="email">
+            <mat-error *ngIf="form.controls['email'].hasError('required')">
+                Este campo es obligatorio
+            </mat-error>
+            <mat-error *ngIf="form.controls['email'].hasError('email')">
+                Ingrese un correo electrónico válido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="password" formControlName="password">
+            <mat-error *ngIf="form.controls['password'].hasError('required')">
+                Este campo es obligatorio
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary" class="w-full">
+            Ingresar
+        </button>
+
+        <div *ngIf="error" class="alert-error mt-2">
+            El usuario o contraseña no son correctos.
+        </div>
+
+    </form>
+
+</div>

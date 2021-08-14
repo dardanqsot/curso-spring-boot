@@ -16,7 +16,7 @@
 
     <span class="spacer"></span>
 
-    <button mat-button [matMenuTriggerFor]="menuCarrito">
+    <button mat-button [matMenuTriggerFor]="menuCarrito" [matBadge]="items.length" matBadgePosition="before" matBadgeColor="accent">
         <mat-icon>shopping_cart</mat-icon>
     </button>
 
@@ -53,14 +53,33 @@
     </mat-menu>
 
 
-    <button mat-button>
-        @Darwin
+    <button mat-button [matMenuTriggerFor]="menuUsuario" *ngIf="isLoggedIn(); else loginButton">
+        <mat-icon>account_circle</mat-icon> {{ name }}
     </button>
+
+    <mat-menu #menuUsuario="matMenu">
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Cerrar sesión</span>
+        </button>
+    </mat-menu>
+
+    <ng-template #loginButton>
+
+        <button mat-button routerLink="/auth/login">
+            Iniciar sesión
+        </button>
+    
+        <button mat-raised-button routerLink="/auth/registro">
+            Registrarse
+        </button>
+
+    </ng-template>
 
 </mat-toolbar>
 
 
-<div style="padding: 2rem;">
+<div>
 
     <router-outlet></router-outlet>
 

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Libro, LibroPage } from '../../interfaces/libro.interface';
 import { Venta } from '../../interfaces/venta.interface';
+import { Usuario } from '../../interfaces/usuario.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class HomeService {
     private http: HttpClient
   ) { }
 
-  
+
   getUltimosLibros() {
     return this.http.get<Libro[]>(`${this.apiBase}/ultimos-libros`);
   }
@@ -45,6 +46,10 @@ export class HomeService {
     return this.http.get(`${this.apiBase}/descargar-archivo/${idItemVenta}`, {
       responseType: 'blob'
     });
+  }
+
+  registrarUsuario(usuario: Usuario) {
+    return this.http.post<Usuario>(`${this.apiBase}/auth/registro`, usuario);
   }
 
 }

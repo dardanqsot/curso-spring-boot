@@ -8,9 +8,17 @@
 
     <span class="spacer"></span>
 
-    <button mat-button>
-        @Darwin
+    <button mat-button [matMenuTriggerFor]="menuUsuario">
+        <mat-icon>account_circle</mat-icon> {{ name }}
     </button>
+
+
+    <mat-menu #menuUsuario="matMenu">
+        <button mat-menu-item (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Cerrar sesión</span>
+        </button>
+    </mat-menu>
 
 </mat-toolbar>
 
